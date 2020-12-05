@@ -45,14 +45,18 @@ impl Map {
 
 fn parse_pattern() -> Vec<Vec<MapTile>> {
     if let Ok(lines) = read_lines("src/ch03/input.txt") {
-        lines.map(|l| {
-            let line = l.unwrap();
-            line.chars().map(|c| match c {
-                '.' => MapTile::Open,
-                '#' => MapTile::Tree,
-                _ => panic!("tile {} not recognized!", c),
-            }).collect()
-        }).collect()
+        lines
+            .map(|l| {
+                let line = l.unwrap();
+                line.chars()
+                    .map(|c| match c {
+                        '.' => MapTile::Open,
+                        '#' => MapTile::Tree,
+                        _ => panic!("tile {} not recognized!", c),
+                    })
+                    .collect()
+            })
+            .collect()
     } else {
         panic!("File not found");
     }
@@ -82,10 +86,7 @@ fn debug_map(m: &Map) {
 
 pub fn solve_part1() {
     let m = parse_map();
-    let s = Slope {
-        x: 1,
-        y: 3,
-    };
+    let s = Slope { x: 1, y: 3 };
 
     println!("Tree count {}", m.count_tree_for_slope(&s));
 }

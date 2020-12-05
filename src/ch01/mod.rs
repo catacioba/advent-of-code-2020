@@ -1,5 +1,5 @@
-use std::collections::{HashSet, HashMap};
-use crate::utils::utils::{read_lines, convert_lines_to_numbers};
+use crate::utils::utils::{convert_lines_to_numbers, read_lines};
+use std::collections::{HashMap, HashSet};
 
 fn find_2_adding_numbers(numbers: Vec<i64>) -> (i64, i64) {
     let mut s: HashSet<i64> = HashSet::new();
@@ -61,10 +61,7 @@ fn find_3_adding_numbers(numbers: Vec<i64>) -> (i64, i64, i64) {
 pub fn solve_part2() {
     if let Ok(lines) = read_lines("src/ch01/input.txt") {
         let numbers = find_2_adding_numbers(convert_lines_to_numbers(lines));
-        println!(
-            "the numbers are {} and {}",
-            numbers.0, numbers.1
-        );
+        println!("the numbers are {} and {}", numbers.0, numbers.1);
 
         println!("their product is {}", numbers.0 * numbers.1);
     }

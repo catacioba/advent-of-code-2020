@@ -1,4 +1,4 @@
-use crate::utils::utils::{read_lines};
+use crate::utils::utils::read_lines;
 
 #[derive(Debug)]
 struct PasswordPolicy {
@@ -62,9 +62,9 @@ fn is_password_valid_part2(p: &Password) -> bool {
     for (idx, c) in p.value.char_indices() {
         if idx + 1 == policy.lower_limit as usize && c == p.policy.character {
             cnt += 1;
-        } else if idx + 1== policy.upper_limit as usize && c == p.policy.character {
+        } else if idx + 1 == policy.upper_limit as usize && c == p.policy.character {
             cnt += 1;
-        } else if idx + 1> policy.upper_limit as usize {
+        } else if idx + 1 > policy.upper_limit as usize {
             break;
         }
     }
@@ -73,11 +73,17 @@ fn is_password_valid_part2(p: &Password) -> bool {
 }
 
 fn get_invalid_passwords_count_part1(passwords: Vec<Password>) -> usize {
-    passwords.iter().filter(|p| is_password_valid_part1(p)).count()
+    passwords
+        .iter()
+        .filter(|p| is_password_valid_part1(p))
+        .count()
 }
 
 fn get_invalid_passwords_count_part2(passwords: Vec<Password>) -> usize {
-    passwords.iter().filter(|p| is_password_valid_part2(p)).count()
+    passwords
+        .iter()
+        .filter(|p| is_password_valid_part2(p))
+        .count()
 }
 
 pub fn solve_part1() {
@@ -87,7 +93,10 @@ pub fn solve_part1() {
         // }
         let passwords: Vec<Password> = lines.map(|l| parse_password(l.unwrap())).collect();
         println!("password file parsed");
-        println!("invalid password count part 1 => {}", get_invalid_passwords_count_part1(passwords));
+        println!(
+            "invalid password count part 1 => {}",
+            get_invalid_passwords_count_part1(passwords)
+        );
     }
 }
 
@@ -95,6 +104,9 @@ pub fn solve_part2() {
     if let Ok(lines) = read_lines("src/ch02/input.txt") {
         let passwords: Vec<Password> = lines.map(|l| parse_password(l.unwrap())).collect();
         println!("password file parsed");
-        println!("invalid password count part 2 => {}", get_invalid_passwords_count_part2(passwords));
+        println!(
+            "invalid password count part 2 => {}",
+            get_invalid_passwords_count_part2(passwords)
+        );
     }
 }
