@@ -9,8 +9,9 @@ mod ch08;
 mod ch09;
 mod ch10;
 mod ch11;
+mod ch12;
 mod utils;
 
 fn main() {
-    ch11::solve_part2();
+    ch12::solve_part2();
 }
