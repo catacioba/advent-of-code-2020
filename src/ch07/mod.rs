@@ -48,19 +48,6 @@ fn parse_rules() -> HashMap<String, Vec<(i32, String)>> {
         .collect()
 }
 
-// fn dfs(current: &Rule, target: &str, rules: HashMap<String, Vec<String>>, visited: &mut HashMap<&String, bool>) {
-//     // rules
-//     //     .iter()
-//     //     .map(|r| {
-//     //         r.to.iter()
-//     //             .map(|to| (&r.from, to))
-//     //             .collect::<Vec<(&String, &String)>>()
-//     //     })
-//     //     .flatten()
-//     //     .collect()
-//     for bag in current.
-// }
-
 fn dfs_dumb(current: &str, target: &str, rules: &HashMap<String, Vec<(i32, String)>>) -> bool {
     if current == target {
         return true;

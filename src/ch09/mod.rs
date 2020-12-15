@@ -76,7 +76,6 @@ fn find_weakness(numbers: &Vec<u64>, sum: u64) -> (usize, usize) {
 
 pub fn solve_part2() {
     let numbers = read_numbers();
-    // let partial_sums = compute_partial_sums(&numbers);
 
     let k = 25;
     let first_incorrect = find_first_invalid(&numbers, k);
