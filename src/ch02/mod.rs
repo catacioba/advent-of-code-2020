@@ -88,9 +88,6 @@ fn get_invalid_passwords_count_part2(passwords: Vec<Password>) -> usize {
 
 pub fn solve_part1() {
     if let Ok(lines) = read_lines("src/ch02/input.txt") {
-        // for line in lines {
-        //     println!("{:?}", parse_password(line.unwrap()));
-        // }
         let passwords: Vec<Password> = lines.map(|l| parse_password(l.unwrap())).collect();
         println!("password file parsed");
         println!(
