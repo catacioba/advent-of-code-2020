@@ -20,8 +20,9 @@ mod ch19;
 mod ch20;
 mod ch22;
 mod ch23;
+mod ch24;
 mod utils;
 
 fn main() {
-    ch20::solve_part1();
+    ch24::solve_part2();
 }
