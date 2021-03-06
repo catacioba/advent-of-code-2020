@@ -12,8 +12,11 @@ pub mod utils {
         Ok(io::BufReader::new(file).lines())
     }
 
-    pub fn read_lines_until_empty<P>(filename: P) -> Vec<String> {
-        fs::read_to_string("src/ch06/input.txt")
+    pub fn read_lines_until_empty<P>(filename: P) -> Vec<String>
+    where
+        P: AsRef<Path>,
+    {
+        fs::read_to_string(filename)
             .unwrap()
             .split("\r\n\r\n")
             .map(|s| s.to_string())
